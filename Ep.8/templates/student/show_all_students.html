@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{title}}
+
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  <h1>{{title}}</h1>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <form action="{{url_for('search_student')}}" method="post"><div class="input-group mb-3">
+        <input name="search" type="text" class="form-control" placeholder="Search By Student Name" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-primary" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
+      </div></form>
+    </div>
+    <div class="col">
+
+      <a href="{{url_for('new_student')}}" class="btn btn-outline-primary float-end"><i class="bi bi-person-add"></i>
+        Add New Student</a>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <div class="card-header text-center bg-success text-light">
+      <h1> {{title}}</h1>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover   ">
+          <thead>
+            <tr>
+              <th scope="col">Student ID</th>
+              <th scope="col">Student Name</th>
+              <th scope="col">Student Phone</th>
+              <th scope="col">Student Fuculty</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if students %}
+            {% for s in students %}
+            <tr>
+              <th scope="row">{{s.sid}}</th>
+              <td>{{s.sname}}</td>
+              <td>{{s.smobile}}</td>
+              <td>{{s.sfaculty}}</td>
+              <td>
+                <a class="btn btn-outline-success btn-small" href="{{url_for('update_student',sid=s.sid)}}"><i
+                    class="bi bi-pencil-square"></i></a>
+
+                <a onclick="return confirm('Are you sure to Delete Student?')" class="btn btn-outline-danger btn-small"
+                  href="{{url_for('delete_student',sid=s.sid)}}"><i class="bi bi-trash3"></i></a>
+              </td>
+
+              <!-- <td>{{s.sname}}</td> -->
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+              <td class="text-center" style="font-size: 5rem;" colspan="5"><strong class="text-danger text-center ">No
+                  Data!</strong></td>
+            </tr>
+            {% endif %}
+
+
+
+          </tbody>
+        </table>
+      </div>
+      <a style="font-size: 2rem;" href="{{url_for('index')}}"><i class="bi bi-arrow-return-left"></i></a>
+    </div>
+  </div>
+
+
+</div>
+
+{% endblock %}

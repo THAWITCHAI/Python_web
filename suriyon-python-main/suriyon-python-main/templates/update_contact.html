@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="container">
+        <h1>{{title}}</h1>
+        <hr>
+        <div class="row">
+            <form class="col s12" method="POST">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input disabled value="{{ contact.id }}" name="id"id="id" type="text" class="validate">
+                  <label for="id">Student ID</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input  value="{{contact.name}}"name="name" id="name" type="text" class="validate">
+                  <label for="name">Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input  value="{{contact.position}}"name="position" id="position" type="text" class="validate">
+                  <label for="position">Position</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input  value="{{contact.team}}"name="team" id="team" type="text" class="validate">
+                  <label for="team">Team</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input  value="{{contact.Personal_Information}}"name="Personal_Information" id="Personal_Information" type="text" class="validate">
+                  <label for="Personal_Information">Personal Information</label>
+                </div>
+              </div>
+              <div class="row">
+               <button type="submit" class="btn waves-effect waves-light">
+                <i class="material-icons left">person_add</i>
+                Update Contact
+            </button>
+              </div>
+            </form>
+          </div>
+    </div>
+{% endblock %}

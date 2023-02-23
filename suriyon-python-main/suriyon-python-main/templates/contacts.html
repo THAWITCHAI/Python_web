@@ -1,0 +1,81 @@
+  {% extends 'layout.html' %}
+
+  {% block title %}
+      Mycontact
+  {% endblock %}
+
+  {% block content %}
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+    ::placeholder{
+      color: rgb(100, 94, 94);
+      
+    }
+    button{
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+    }
+    </style>
+
+    <div class="container">
+      <h1 >Football Player</h1>
+      <hr>
+      <div class="row">
+        <div class="col s6">
+          <form action="{{ url_for('search_contact') }}" method="post">
+            <div class="row">
+              <div  class="input-field col s8">
+                <input  name="search" placeholder="ENTER YOUR PLAYER" type="text" class="validate">
+              </div>  
+              <div class="input-field col s4">
+                <button   type="submit" class="btn waves-effect waves-light red"><i class="material-icons left">search</i>SEARCH</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col s6 right-align">
+          <a href="{{ url_for('new_contact')}}" class="btn"><i class="material-icons left">person_add</i>new Player</a>
+        </div>
+      </div>
+      <table class="striped  centered">
+          <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Action</th>
+                
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for c in contacts %}
+            <tr>
+              <td>{{c.id}}</td>
+              <td>{{c.name}}</td>
+              <td>{{c.position}}</td>
+              <td>
+                <a href="{{ url_for('contact_detail', id=c.id)}}" class="waves-effect waves-light btn-small  blue darken-1">
+                  <i class="material-icons left">info_outline</i>
+                  more detail
+                </a>
+  <!--               <script>
+                  var data = '{{ url_for('delete_contact', id=c.id)}}';
+                  console.log(data)
+                </script> -->
+                <a href="{{ url_for('delete_contact', id=c.id)}}" class="waves-effect waves-light btn-small red darken-1">
+                  <i class="material-icons left">delete</i>
+                  delete
+                </a>
+  <!--               <button onclick="delete_contact(data)" class="waves-effect waves-light btn-small red darken-1">
+                  <i class="material-icons left">delete</i>
+                  delete
+                </button> -->
+              </td>
+            </tr>
+            
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+  {% endblock %}

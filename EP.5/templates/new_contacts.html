@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  {{title}}
+{% endblock %}
+
+{% block content %} 
+
+  <div class="container">
+    <h1 style="display:flex ; justify-content: center;">{{title}}</h1>
+    <hr>
+    <div class="row">
+      <form class="col s12" method="post">
+        
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="id" id="id" type="text" class="validate">
+            <label for="id">Student ID</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="name" id="name" type="text" class="validate">
+            <label for="name">Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="mobile" id="mobile" type="text" class="validate">
+            <label for="mobile">Mobile</label>
+          </div>
+        </div>
+        <div class="row">
+          <button type="submit" class="btn waves-effect waves-light">
+            <i class="material-icons left">add</i>
+            add Contact
+          </button>
+        </div>
+      </form>
+    </div>          
+  </div>
+{% endblock %}

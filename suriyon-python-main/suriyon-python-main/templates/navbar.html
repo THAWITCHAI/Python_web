@@ -1,0 +1,15 @@
+<nav style="padding:0px 10px;">
+    <div class="nav-wrapper">
+      <a href="{{ url_for('index')}}" class="brand-logo">CTL</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{{ url_for('index')}}">Home</a></li>
+        <li><a href="{{ url_for('contacts')}}">My contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    <li><a href="{{ url_for('contacts')}}">My contact</a></li>
+  </ul>

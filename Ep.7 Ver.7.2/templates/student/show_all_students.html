@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{title}}
+
+{% endblock %}
+
+
+{% block content %}
+<div  style="margin-top: 2rem; background: none;" class="container ">
+  <h1>{{title}}</h1>
+  <hr>
+  <div class="row">
+    <div class="col">
+
+      <!-- <nav class="navbar bg-light"> -->
+        <div class="container-fluid">
+          <form action="{{url_for('search_student')}}" class="d-flex" role="search" method="post">
+            <input name="search" id="search" style="background:none ; color: #fff;" class="form-control me-2" type="search" placeholder="Search name" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+          </form>
+        </div>
+      <!-- </nav> -->
+
+    </div>
+    <div class="col">
+      
+      <a href="{{url_for('new_student')}}" class="btn btn-outline-primary float-end"><i style="font-size: 1.5rem;" class="bi bi-person-add"></i> </a>
+    </div>
+  </div>  
+  <br>
+  <div class="card " style="background:rgba(255, 255, 255, 0.1) ;backdrop-filter: blur(5px);">
+    <div class="card-header   " >
+      
+      <h1> {{title}}</h1>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive" >
+        <table class="table table-borderless table-hover " >
+          <thead >
+            <tr>
+              <th scope="col">Student ID</th>
+              <th scope="col">Student Name</th>
+              <th scope="col">Student Phone</th>
+              <th scope="col">Fuculty</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody >
+            {% for s in students %}
+            <tr>
+              <th scope="row">{{s.sid}}</th>
+              <td >{{s.sname}}</a></td>
+              <td >{{s.smobile}}</td>
+              <td >{{s.sfaculty}}</td>
+              <td>
+                <a class="btn btn-outline-success btn-small"  href="{{url_for('update_student',sid=s.sid)}}"><i class="bi bi-pencil-square"></i></a>
+                
+                <a class="btn btn-outline-danger btn-small" href="{{url_for('delete_student',sid=s.sid)}}"><i class="bi bi-trash3"></i></a>
+              </td>
+
+              <!-- <td>{{s.sname}}</td> -->
+            </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+      <a style="font-size: 2rem;" href="{{url_for('index')}}"><i class="bi bi-arrow-return-left btn btn-outline-success"></i></a>
+    </div>
+  </div>
+
+
+</div>
+
+{% endblock %}

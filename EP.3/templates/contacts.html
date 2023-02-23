@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block title %}
+Contacts
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1 style="display:flex ; justify-content: center;">Contacts Page</h1>
+  <hr>
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Mobile</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- ffor -->
+      {% for c in contacts %}
+      <tr>
+        <td>{{c.id}}</td>
+        <td>{{c.name}}</td>
+        <td>{{c.mobile}}</td>
+        <td><a href="{{url_for('contact_detail',id=c.id)}}" class="waves-effect waves-light btn-small">More Detail</a></td>
+      </tr>
+      {% endfor %}
+
+
+    </tbody>
+  </table>
+  
+</div>
+<div style="margin-left: 21.4rem; width: 5rem; margin-top: 1rem; "><a href="{{url_for('index')}}" class="waves-effect waves-light btn-small">Black</a</div>
+{% endblock %}

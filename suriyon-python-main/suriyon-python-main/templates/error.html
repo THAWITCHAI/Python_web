@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+
+
+    <div  class="container">
+        <h1 style="display: flex;justify-content: center;">
+            duplicate information</h1>
+        <hr>
+        <a href="{{ url_for('new_contact') }}" class="waves-effect waves-light btn blue darken-1"><i
+            class="material-icons left">chevron_right</i>Back</a>
+       
+        
+    </div>
+{% endblock %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+    *{
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+    }
+    </style>

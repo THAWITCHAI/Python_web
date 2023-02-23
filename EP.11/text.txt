@@ -1,0 +1,4 @@
+set FLASK_APP=server.py
+1.flask
+2.flask run
+-flask --app server.py --debug run

@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{title}}
+
+{% endblock %}
+
+{% block content %}
+    <div class="container" style="width: 50%;margin-top: 2rem;"   >
+      <h1>{{title}}</h1>
+      <hr>
+      <div class="card" style="background: rgba(255, 255, 255, 0.1); width: 60%;margin: 2rem auto; border: 1px solid rgb(83, 81, 81);backdrop-filter: blur(5px);"  >
+        <div class="card-header text-center text-light" style="border: none;">
+          <h5>{{title}}</h5>
+        </div>
+        <div class="crad-body" style="display: flex;align-items: center;justify-content: center;">
+          
+          <form style="margin: 1rem 0 1rem 0;" method="post">
+
+            <div class="mb-3">
+              <label for="group" class="form-label">GROUP</label>
+              <input disabled value="{{std.group}}" style="width: 30rem; margin-left: 1rem;background: rgb(89, 85, 85);color: white;" name="group" type="text" class="form-control" id="name_team" required placeholder="please fill ">
+            </div>
+
+            <div class="mb-3">
+              <label for="name_team" class="form-label">name team</label>
+              <input disabled value="{{std.name_team}}" style="width: 30rem; margin-left: 1rem;background: rgb(89, 85, 85);color: white;" name="name_team" type="text" class="form-control" id="name_team" required placeholder="please fill ">
+            </div>
+
+            <div class="mb-3">
+              <label for="race" class="form-label">race</label>
+              <input value="{{std.race}}" style="width: 30rem; margin-left: 1rem;background: none;color: white;" name="race" type="text" class="form-control" id="race" required placeholder="please fill ">
+            </div>
+
+            <div class="mb-3">
+              <label for="win" class="form-label">win</label>
+              <input value="{{std.win}}" style="width: 30rem; margin-left: 1rem;background: none;color: white;" name="win" type="text" class="form-control" id="win" required placeholder="please fill ">
+            </div>
+
+            <div class="mb-3">
+              <label for="draw" class="form-label">draw</label>
+              <input value="{{std.draw}}" style="width: 30rem; margin-left: 1rem;background: none;color: white;" name="draw" type="text" class="form-control" id="draw" required placeholder="please fill ">
+            </div>
+
+            <div class="mb-3">
+              <label for="lose" class="form-label">lose</label>
+              <input value="{{std.lose}}" style="width: 30rem; margin-left: 1rem;background: none;color: white;" name="lose" type="text" class="form-control" id="lose" required placeholder="please fill ">
+            </div>
+
+            <div class="mb-3">
+              <label for="gain" class="form-label">gain</label>
+              <input value="{{std.gain}}" style="width: 30rem; margin-left: 1rem;background: none;color: white;" name="gain" type="text" class="form-control" id="gain" required placeholder="please fill ">
+            </div>
+
+            <div class="mb-3">
+              <label for="broken" class="form-label">broken</label>
+              <input value="{{std.broken}}" style="width: 30rem; margin-left: 1rem;background: none;color: white;" name="broken" type="text" class="form-control" id="broken" required placeholder="please fill ">
+            </div>
+
+            <div class="mb-3">
+              <label for="different" class="form-label">different</label>
+              <input value="{{std.different}}"  style="width: 30rem; margin-left: 1rem;background: none;color: white;" name="different" type="text" class="form-control" id="different" required placeholder="please fill ">
+            </div>
+
+            <div class="mb-3">
+              <label for="points" class="form-label">points</label>
+              <input value="{{std.points}}"  style="width: 30rem; margin-left: 1rem;background: none;color: white;" name="points" type="text" class="form-control" id="points" required placeholder="please fill ">
+            </div>
+
+            <!-- <div class="mb-3">
+              <label for="simg" class="form-label">img</label>
+              <input style="width: 30rem; margin-left: 1rem;background: none;color: white;" name="simg" type="file" class="form-control" id="simg" required placeholder="please fill ">
+            </div> -->
+
+            <button type="submit" class="btn btn-outline-primary"><i style="font-size: 1.25rem;" class="bi bi-person-add"></i> </button>
+            <a style="font-size: 1.5rem;" href="{{url_for('show_all_students')}}"><i class="bi bi-arrow-return-left float-end btn btn-outline-success"></i></a>
+          </form>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

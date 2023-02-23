@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{title}}
+{% endblock %}
+
+
+{% block content %}
+<div style="margin-top: 2rem; background: none;" class="container ">
+  <h1>{{title}}</h1>
+  <hr>
+  <div class="row">
+    <div class="col">
+
+      <!-- <nav class="navbar bg-light"> -->
+      <div class="container-fluid">
+      </div>
+      <!-- </nav> -->
+
+    </div>
+    <div class="col">
+    </div>
+  </div>
+  <br>
+  <div class="card " style="background:rgba(255, 255, 255, 0.1) ;backdrop-filter: blur(5px);">
+    <div class="card-header   ">
+
+      <h1> {{title}}</h1>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <form method="post">
+          <table class="table table-borderless  text-center">
+            <thead>
+              <tr>
+                <th style="border: 1px solid none;" scope="col">group</th>
+                <th style="border: 1px solid none;" scope="col">name teams</th>
+                <th style="border: 1px solid none;" scope="col">race</th>
+                <th style="border: 1px solid none;" scope="col">win</th>
+                <th style="border: 1px solid none;" scope="col">draw</th>
+                <th style="border: 1px solid none;" scope="col">lose</th>
+                <th style="border: 1px solid none;" scope="col">gain</th>
+                <th style="border: 1px solid none;" scope="col">broken</th>
+                <th style="border: 1px solid none;" scope="col">different</th>
+                <th style="border: 1px solid none;" scope="col">points</th>
+                <th style="border: 1px solid none;" scope="col">Action </th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+
+                <th style="border: 1px solid none; display: flex; align-items: center;justify-content: center;">
+                  <label for="group"></label>
+                  <input disabled value="{{std.group}}"
+                    style="border-radius:5px;width: 5rem;background: #736e6e;color: white;" name="group" type="text"
+                    class=" text-center" id="group" required placeholder="please fill ">
+                </th>
+
+                <th>
+                  <label for="name_team"></label>
+                  <input disabled value="{{std.name_team}}"
+                    style="border-radius:5px;width: rem;background: #736e6e;color: white;" name="name_team" type="text"
+                    class=" text-center" id="name_team" required placeholder="please fill ">
+                </th>
+
+                <td>
+                  <label for="race"></label>
+                  <input id="race" name="race" class="text-center" value="{{std.race}}"
+                    style="background: none; border: 1px solid #fff; width: 4rem;border-radius: 5px;" type="text">
+                </td>
+
+                <td>
+                  <label for="win"></label>
+                  <input id="win" name="win" class="text-center" value="{{std.win}}"
+                    style="background: none; border: 1px solid #fff; width: 4rem;border-radius: 5px;" type="text">
+                </td>
+
+                <td>
+                  <label for="draw"></label>
+                  <input id="draw" name="draw" class="text-center" value="{{std.draw}}"
+                    style="background: none; border: 1px solid #fff; width: 4rem;border-radius: 5px;" type="text">
+                </td>
+
+                <td>
+                  <label for="lose"></label>
+                  <input id="lose" name="lose" class="text-center" value="{{std.lose}}"
+                    style="background: none; border: 1px solid #fff; width: 4rem;border-radius: 5px;" type="text">
+                </td>
+
+                <td>
+                  <label for="gain"></label>
+                  <input id="gain" name="gain" class="text-center" value="{{std.gain}}"
+                    style="background: none; border: 1px solid #fff; width: 4rem;border-radius: 5px;" type="text">
+                </td>
+
+                <td>
+                  <label for="broken"></label>
+                  <input id="broken" name="broken" class="text-center" value="{{std.broken}}"
+                    style="background: none; border: 1px solid #fff; width: 4rem;border-radius: 5px;" type="text">
+                </td>
+
+                <td>
+                  <label for="different"></label>
+                  <input id="different" name="different" class="text-center" value="{{std.different}}"
+                    style="background: none; border: 1px solid #fff; width: 4rem;border-radius: 5px;" type="text">
+                </td>
+
+                <td> 
+                  <label for="points"></label>
+                  <input id="points" name="points" class="text-center" value="{{std.points}}"
+                    style="background: none; border: 1px solid #fff; width: 4rem;border-radius: 5px;" type="text"></td>
+                <td>
+
+                  <button type="submit" class="btn btn-outline-success"><i class="bi bi-check2"></i> </button>
+
+                  <a class="btn btn-outline-danger btn-small" href="{{url_for('show_all_students')}}"><i
+                      class="bi bi-x-lg"></i></a>
+                </td>
+
+              </tr>
+
+
+
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+{% endblock %}

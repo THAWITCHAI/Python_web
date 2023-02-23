@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Friend's Detail
+{% endblock %}
+
+{% block content %} 
+
+  <div class="container">
+    <h1 style="display:flex ; justify-content: center;">My Friend's Detail</h1>
+    <hr>
+    <ul class="collection with-header">
+      <li class="collection-header"><h4>{{contact.name}}'s details</h4></li>
+      <li class="collection-item">ID: {{contact.id}}</li>
+      <li class="collection-item">Name: {{contact.name}}</li>
+      <li class="collection-item">Mobile: {{contact.mobile}}</li>
+      <li class="collection-item">
+        <a href="{{ url_for('update_contact', id=contact.id) }}" class="waves-effect waves-light btn"><i class="material-icons left">sync</i>update contacts</a>
+        <a href="{{ url_for('index') }}" class="waves-effect purple darken-1 btn"><i class="material-icons left">home</i>Go to home</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}

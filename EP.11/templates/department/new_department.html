@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  {{title}}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>{{title}}</h1>
+    <hr>
+    <div class="card">
+      <div class="card-header">
+        {{title}}
+      </div>
+      <div class="card-body">
+        <form method="post">
+          <div class="mb-3">
+            <label for="dname" class="form-label">Department Name</label>
+            <input name="dname" type="text" class="form-control" id="dname">            
+          </div>
+          
+          <button type="submit" class="btn btn-outline-primary">
+            <i class="bi bi-building-add"></i>
+            Add New Department
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

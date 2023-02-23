@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+My Contacts
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h1 style="display:flex ; justify-content: center;">Contacts List</h1>
+  <hr>
+  <div class="row">
+        <form action="{{ url_for('search_contact') }}" method="post" class="col s6">
+          <div class="row">
+            <div class="col s8 input-field">
+             <input name="search" id="search" placeholder="enter your friend's name" id="first_name" type="text" class="validate">
+            <label for="search">Search By Name</label>
+            </div>
+    <div class="col s4 input-field">
+      <button type="submit" class="btn waves-effect waves-light light-blue darken-1">
+        <i class="material-icons">find_in_page</i>
+      </button>
+    </div>
+    <div class="col s6 right-align">
+      <a href="{{ url_for('new_contact') }}" class="btn waves-effect waves-light">
+    <i class="material-icons left">add</i>
+    new contact</a>
+    </div>
+  </div>
+
+  <table class="responsive-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Action</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for c in contacts %}
+      <tr>
+        <td>{{c.id}}</td>
+        <td>{{c.name}}</td>
+        <td>{{c.mobile}}</td>
+        <td>
+          <a href="{{ url_for('contact_detail',id=c.id) }}" class="waves-effect waves-light btn-small blue darken-1">
+            <i class="material-icons left">info_outline</i>
+            More Detail</a>
+          <a href="{{ url_for('delete_contact',id=c.id) }}" class="waves-effect waves-light btn-small red darken-1">
+            <i class="material-icons left">remove_circle_outline</i>
+            Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+
+
+
+    </tbody>
+  </table>
+</div>
+{% endblock %}
