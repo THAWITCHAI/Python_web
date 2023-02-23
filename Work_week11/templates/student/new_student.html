@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  {{title}}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>{{title}}</h1>
+    <hr>
+    <div class="card">
+      <div class="card-header">
+        {{title}}
+      </div>
+      <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="sid" class="form-label">Student ID</label>
+            <input name="sid" type="text" class="form-control" id="sid">            
+          </div>
+          <div class="mb-3">
+            <label for="sname" class="form-label">Student Name</label>
+            <input name="sname" type="text" class="form-control" id="sname">            
+          </div>
+          <div class="mb-3">
+            <label for="smobile" class="form-label">Mobile Phone</label>
+            <input name="smobile" type="text" class="form-control" id="smobile">            
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Select Department</label>
+            <select name="dep_id" class="form-select">
+              <option selected>Select On Department</option>
+              {% for dep in departments %}
+                <option value="{{dep.id}}">{{dep.dname}}</option>
+              {% endfor %}
+              
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="simage" class="form-label">Select Student Picture</label>
+            <input name="simage" class="form-control" type="file" id="simage" accept="image/jpg, image/jpeg, image/png">
+          </div>
+          <button type="submit" class="btn btn-outline-primary">
+            <i class="bi bi-person-fill-add"></i>
+            Add New Student
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
